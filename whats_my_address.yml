@@ -1,0 +1,17 @@
+---
+- name: getting information about the host out of ansible
+  hosts: all
+  vars:
+  tasks:
+  - name: my ip address
+    connection: local
+    set_fact:
+      my_ip_address: "{{ ansible_all_ipv4_addresses[0] }}"
+  - debug:
+      var: my_ip_address  
+  - name: my hostname
+    connection: local
+    set_fact:
+      my_hostname: "{{ ansible_hostname }}"
+  - debug:
+      var: my_hostname
